@@ -1,0 +1,17 @@
+= Chile Mangas Ecommerce
+Sergio <sergiovargas354@gmail.com>
+:toc: 
+:toclevels: 3
+
+== Introducción
+
+Este documento contiene la planificación del ecommerce para la tienda Chile Mangas. Se abordan temas como la selección de servidor, diseño de la base de datos, endpoints REST, estimación de costos, tecnologías utilizadas, y un análisis de los profesionales necesarios.
+
+Los capítulos del documento son:
+
+* Capítulo 1: Selección del Servidor.
+* Capítulo 2: Diseño de la Base de Datos.
+* Capítulo 3: Selección Tecnológica.
+* Capítulo 4: Estimación de Costos y Plazos.
+* Capítulo 5: User Journey y Personas.
+
