@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="description" content="A book about something.">
+<meta name="keywords" content="web, mobile, programación, lenguaje, referencia">
+<meta name="author" content="Example Author">
+<meta name="copyright" content="CC-BY-NC-SA 4.0">
+<title>Chile Mangas</title>
+<style>
+/* https://github.com/darshandsoni/asciidoctor-skins/blob/gh-pages/css/dark.css */
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+
+@import url(//fonts.googleapis.com/css?family=Noto+Sans);
+@import url(https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css); /* Default asciidoc style framework - important */
+
+/* CUSTOMISATIONS */
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+:root{
+--maincolor:#282c34;
+--primarycolor:#f39c12;
+--secondarycolor:#03a9f4;
+--tertiarycolor:#4db6ac;
+--sidebarbackground:#21252b;
+--linkcolor:#f44336;
+--linkcoloralternate:#ff9800;
+--white:#FFFFFF;
+}
+
+/* Text styles */
+
+body{font-family: "Noto Sans",sans-serif;background-color: var(--maincolor);color:var(--white);}
+
+h1{color:var(--primarycolor) !important;font-family:"Noto Sans",sans-serif;}
+h2,h3,h4,h5,h6{color:var(--secondarycolor) !important;font-family:"Noto Sans",sans-serif;}
+.title{color:var(--white) !important;font-family:"Noto Sans",sans-serif;font-style: normal; font-weight: normal;}
+p{font-family: "Noto Sans",sans-serif ! important}
+#toc.toc2 a:link{color:var(--linkcolor);}
+.toc {background-color: var(--maincolor) !important;color:var(--white);}
+blockquote{color:var(--tertiarycolor) !important}
+.quoteblock{color:var(--white)}
+code{color:var(--linkcoloralternate);background-color: var(--sidebarbackground) !important}
+
+
+/* Table styles */
+th{background-color: var(--maincolor);color:var(--white) !important;}
+td{background-color: var(--maincolor);color: var(--linkcoloralternate) !important}
+
+
+#toc.toc2{background-color:var(--sidebarbackground);}
+#toctitle{color:var(--white);}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+  table {
+    width: 55vw!important;
+    font-size: 3vw;
+  }
+}
+
+.exampleblock > .content {
+  background-color: var(--maincolor);
+}
+
+a {
+  color: var(--secondarycolor);
+}
+
+.admonitionblock td.icon .icon-tip::before {
+  text-shadow: none;
+  color: var(--white);
+}
+.admonitionblock td.icon .icon-note::before {
+  color: var(--tertiarycolor);
+}
+.admonitionblock td.icon .icon-important::before {
+  color: var(--linkcolor);
+}
+/*.admonitionblock td.icon .icon-caution::before {
+  color: var(--linkcoloralternate);
+}*/
+.admonitionblock td.icon .icon-warning::before {
+  color: var(--primarycolor);
+}
+
+#preamble > .sectionbody > .paragraph:first-of-type p {
+  color: var(--white);
+}
+
+.quoteblock blockquote::before {
+  color: var(--primarycolor);
+}
+.quoteblock .attribution cite, .verseblock .attribution cite {
+  color: var(--white);
+}
+.verseblock pre {
+  color: var(--white);
+}
+.quoteblock blockquote, .quoteblock blockquote p {
+  color: var(--white);
+}
+
+.sidebarblock {
+  background: var(--sidebarbackground);
+}
+.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
+  background: var(--sidebarbackground);
+  color: var(--white);
+}
+
+#header .details {
+  color: var(--white);
+}
+#header .details span.email a {
+  color: var(--linkcoloralternate);
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="highlight/styles/srcery.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Chile Mangas</h1>
+<div class="details">
+<span id="author" class="author">Sergio Vargas Alayo</span><br>
+<span id="email" class="email"><a href="mailto:sergiovargas354@gmail.com">sergiovargas354@gmail.com</a></span><br>
+</div>
+<div id="toc" class="toc2">
+  <div id="toctitle">Tabla de Contenidos</div>
+  <ul class="sectlevel1">
+    <li><a href="#_introduccion">1. Introducción</a>
+      <ul class="sectlevel2">
+        <li><a href="#_descripcion_proyecto">1.1. Descripción del Proyecto</a></li>
+        <li><a href="#_objetivos">1.2. Objetivos Generales y Específicos</a></li>
+      </ul>
+    </li>
+    <li><a href="#_seleccion_servidor">2. Selección de Servidor</a>
+      <ul class="sectlevel2">
+        <li><a href="#_comparativa_servidores">2.1. Comparativa de Servidores Disponibles</a></li>
+        <li><a href="#_servidor_seleccionado">2.2. Servidor Seleccionado y Justificación</a></li>
+        <li><a href="#_configuracion_servidor">2.3. Configuración del Servidor para Shopify</a></li>
+      </ul>
+    </li>
+    <li><a href="#_diseno_bd">3. Diseño de Base de Datos</a>
+      <ul class="sectlevel2">
+        <li><a href="#_diagrama_bd">3.1. Diagrama de Base de Datos (DBML)</a></li>
+        <li><a href="#_relacion_entidades">3.2. Relación entre Entidades</a></li>
+        <li><a href="#_almacenamiento_datos">3.3. Consideraciones para el Almacenamiento de Datos</a></li>
+      </ul>
+    </li>
+    <li><a href="#_diseno_endpoint">4. Diseño de Endpoint Rest</a>
+      <ul class="sectlevel2">
+        <li><a href="#_definicion_endpoints">4.1. Definición de Endpoints</a></li>
+        <li><a href="#_ejemplos_peticiones">4.2. Ejemplos de Peticiones y Respuestas</a></li>
+        <li><a href="#_seguridad_endpoints">4.3. Seguridad en los Endpoints</a></li>
+      </ul>
+    </li>
+    <li><a href="#_tecnologia_backend">5. Selección Tecnológica Backend</a>
+      <ul class="sectlevel2">
+        <li><a href="#_comparativa_cms_custom">5.1. Comparativa entre CMS y Desarrollo Custom</a></li>
+        <li><a href="#_shopify_cms">5.2. Razones para Elegir Shopify como CMS</a></li>
+        <li><a href="#_integraciones_shopify">5.3. Integraciones Adicionales con Shopify</a></li>
+      </ul>
+    </li>
+    <li><a href="#_tecnologia_frontend">6. Selección Tecnológica Frontend</a>
+      <ul class="sectlevel2">
+        <li><a href="#_personalizacion_visual">6.1. Opciones para Personalización Visual</a></li>
+        <li><a href="#_frameworks_librerias">6.2. Frameworks y Librerías Compatibles</a></li>
+        <li><a href="#_diseno_responsivo">6.3. Diseño Responsivo y Experiencia de Usuario</a></li>
+      </ul>
+    </li>
+    <li><a href="#_costos_servidor">7. Estimación de Costos de Servidor y Operación</a>
+      <ul class="sectlevel2">
+        <li><a href="#_costos_modos">7.1. Costos en Modo Bajo, Normal y Crítico</a></li>
+        <li><a href="#_sostenibilidad_economica">7.2. Análisis de Sostenibilidad Económica Mensual</a></li>
+        <li><a href="#_alternativas_ahorro">7.3. Alternativas de Ahorro</a></li>
+      </ul>
+    </li>
+    <li><a href="#_profesionales_necesarios">8. Selección de Profesionales Necesarios</a>
+      <ul class="sectlevel2">
+        <li><a href="#_roles_perfiles">8.1. Roles y Perfiles Necesarios</a></li>
+        <li><a href="#_estimacion_costos_trabajo">8.2. Estimación de Horas y Costos de Trabajo</a></li>
+        <li><a href="#_planificacion_soporte">8.3. Planificación de Colaboración y Soporte</a></li>
+      </ul>
+    </li>
+    <li><a href="#_estimacion_plazos">9. Estimación de Plazos para Implementar</a>
+      <ul class="sectlevel2">
+        <li><a href="#_cronograma_proyecto">9.1. Cronograma del Proyecto</a></li>
+        <li><a href="#_tiempos_fases">9.2. Tiempos Estimados para Cada Fase</a></li>
+        <li><a href="#_plan_contingencia">9.3. Mitigación de Riesgos y Plan de Contingencia</a></li>
+      </ul>
+    </li>
+    <li><a href="#_adr">10. ADR (Architectural Decision Records)</a>
+      <ul class="sectlevel2">
+        <li><a href="#_adr_cms">10.1. Selección de CMS</a></li>
+        <li><a href="#_adr_servidor">10.2. Selección del Servidor</a></li>
+        <li><a href="#_adr_integracion_shopify">10.3. Integración con Shopify</a></li>
+      </ul>
+    </li>
+    <li><a href="#_c4_diagrama">11. Diagrama de Arquitectura C4 (PlantUML)</a>
+      <ul class="sectlevel2">
+        <li><a href="#_contexto_sistema">11.1. Contexto del Sistema</a></li>
+        <li><a href="#_componentes_contenedores">11.2. Contenedores y Componentes</a></li>
+        <li><a href="#_despliegue_infraestructura">11.3. Despliegue de Infraestructura</a></li>
+      </ul>
+    </li>
+    <li><a href="#_personas">12. Persona Positiva y Persona Negativa</a></li>
+    <li><a href="#_user_journey">13. User Journey / Storyboard</a></li>
+    <li><a href="#_analisis_sistema">14. Análisis de Qué es y Qué no es el Sistema</a></li>
+    <li><a href="#_estimacion_costos">15. Estimación Aproximada de Costos</a></li>
+    <li><a href="#_github_pages">16. Publicación del Proyecto en Github Pages</a></li>
+    <li><a href="#_conclusion">17. Conclusión</a></li>
+  </ul>
+</div>
+</div>
+<div id="content">
+  <div class="sect1 introduccion">
+    <h2 id="_introduccion">1. Introducción</h2>
+    <div class="sectionbody">
+      <div class="paragraph">
+        <p>Este proyecto tiene como objetivo desarrollar un sitio web Ecommerce para Chile Mangas, una tienda especializada en la venta de mangas y productos de animé y videojuegos. El objetivo es ofrecer una plataforma online funcional con bajos costos operativos que permita realizar ventas dentro del territorio nacional.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect1 descripcion_proyecto">
+    <h2 id="_descripcion_proyecto">1.1 Descripción del Proyecto</h2>
+    <div class="sectionbody">
+      <div class="paragraph">
+        <p>Chile Mangas, ubicada en Quilpué, solicita un ecommerce para vender sus productos a nivel nacional. Actualmente, el único punto de venta es su tienda física, atendida por sus dueños. El proyecto busca ofrecer una solución tecnológica económica que maximice las ventas sin consumir altos recursos operativos mensuales.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect1 objetivos">
+    <h2 id="_objetivos">1.2 Objetivos Generales y Específicos</h2>
+    <div class="sectionbody">
+      <div class="paragraph">
+        <ul>
+          <li><strong>Objetivo General:</strong> Implementar un sitio ecommerce para Chile Mangas que permita la venta de productos online con bajo costo de operación.</li>
+          <li><strong>Objetivos Específicos:</strong>
+            <ul>
+              <li>Integrar Shopify como CMS para facilitar la gestión del ecommerce.</li>
+              <li>Definir un servidor adecuado con costos bajos.</li>
+              <li>Establecer endpoints para la gestión eficiente de transacciones.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect1 seleccion_servidor">
+    <h2 id="_seleccion_servidor">2. Selección de Servidor</h2>
+    <div class="sectionbody">
+  
+      <div class="sect2 comparativa_servidores">
+        <h3 id="_comparativa_servidores">2.1. Comparativa de Servidores Disponibles</h3>
+        <div class="paragraph">
+          <p>Existen diversas opciones de servidores que pueden ser consideradas para este proyecto. A continuación, se presenta una comparativa de las principales opciones disponibles en el mercado:</p>
+          <ul>
+            <li><strong>Heroku:</strong> Fácil de usar pero con limitaciones en su plan gratuito.</li>
+            <li><strong>Amazon Web Services (AWS):</strong> Escalable pero con costos relativamente altos para pequeños proyectos.</li>
+            <li><strong>Google Cloud:</strong> Ofrece créditos iniciales, pero puede ser complejo para configuraciones básicas.</li>
+            <li><strong>DigitalOcean:</strong> Balance adecuado entre precio y rendimiento para proyectos pequeños.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 servidor_seleccionado">
+        <h3 id="_servidor_seleccionado">2.2. Servidor Seleccionado y Justificación</h3>
+        <div class="paragraph">
+          <p>Se ha decidido utilizar <strong>DigitalOcean</strong> como servidor para este proyecto por las siguientes razones:</p>
+          <ul>
+            <li>Ofrece un plan básico con un costo mensual accesible, alineado al bajo presupuesto del cliente.</li>
+            <li>La configuración y despliegue es sencilla, ideal para tiendas que no requieren un gran equipo técnico.</li>
+            <li>Soporta CMS como Shopify a través de integraciones rápidas y fáciles.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 configuracion_servidor">
+        <h3 id="_configuracion_servidor">2.3. Configuración del Servidor para Shopify</h3>
+        <div class="paragraph">
+          <p>Para integrar Shopify en DigitalOcean, se seguirá el siguiente proceso de configuración:</p>
+          <ol>
+            <li>Crear una cuenta en DigitalOcean y desplegar un droplet básico con Ubuntu.</li>
+            <li>Configurar el droplet con un dominio personalizado para la tienda (por ejemplo, chilemangas.cl).</li>
+            <li>Habilitar HTTPS mediante la instalación de Let's Encrypt.</li>
+            <li>Conectar Shopify con la API del servidor para gestionar inventarios y pedidos.</li>
+            <li>Realizar pruebas de carga para asegurar un rendimiento adecuado durante picos de transacciones.</li>
+          </ol>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 diseno_bd">
+    <h2 id="_diseno_bd">3. Diseño de Base de Datos</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 diagrama_bd">
+        <h3 id="_diagrama_bd">3.1. Diagrama de Base de Datos (DBML)</h3>
+        <div class="paragraph">
+          <p>A continuación, se presenta el diagrama de la base de datos en formato DBML, que describe las entidades principales y sus relaciones:</p>
+          <pre><code class="language-dbml">
+  Table productos {
+    id int [pk, increment]
+    nombre varchar
+    descripcion text
+    precio decimal
+    stock int
+  }
+  
+  Table usuarios {
+    id int [pk, increment]
+    nombre varchar
+    email varchar [unique]
+    password varchar
+  }
+  
+  Table pedidos {
+    id int [pk, increment]
+    usuario_id int [ref: > usuarios.id]
+    fecha date
+    total decimal
+  }
+          </code></pre>
+          <p>Este diagrama permite visualizar cómo están estructurados los datos y cómo se relacionan entre sí, facilitando la gestión de los productos, usuarios y pedidos en el sistema.</p>
+        </div>
+      </div>
+  
+      <div class="sect2 relacion_entidades">
+        <h3 id="_relacion_entidades">3.2. Relación entre Entidades</h3>
+        <div class="paragraph">
+          <p>Las entidades principales de la base de datos son:</p>
+          <ul>
+            <li><strong>Productos:</strong> Contienen información detallada de cada artículo disponible en la tienda.</li>
+            <li><strong>Usuarios:</strong> Representan a los clientes que realizan compras en la plataforma.</li>
+            <li><strong>Pedidos:</strong> Registran las compras realizadas, vinculando a cada pedido con un usuario y los productos adquiridos.</li>
+          </ul>
+          <p>La relación entre las entidades es la siguiente:</p>
+          <ul>
+            <li>Un <strong>usuario</strong> puede tener múltiples <strong>pedidos</strong>.</li>
+            <li>Un <strong>pedido</strong> puede incluir varios <strong>productos</strong> (implementado mediante una tabla intermedia no mostrada en este diagrama).</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 almacenamiento_datos">
+        <h3 id="_almacenamiento_datos">3.3. Consideraciones para el Almacenamiento de Datos</h3>
+        <div class="paragraph">
+          <p>Para asegurar una gestión eficiente del almacenamiento de datos, se tendrán en cuenta las siguientes consideraciones:</p>
+          <ul>
+            <li><strong>Optimización del espacio:</strong> Uso de tipos de datos adecuados (por ejemplo, <code>int</code> para identificadores y <code>decimal</code> para precios).</li>
+            <li><strong>Backups periódicos:</strong> Realización de copias de seguridad automáticas para evitar la pérdida de información.</li>
+            <li><strong>Escalabilidad:</strong> Planificación de la base de datos para soportar un crecimiento futuro en el número de usuarios y productos.</li>
+            <li><strong>Seguridad:</strong> Encriptación de contraseñas y uso de conexiones seguras para proteger los datos sensibles de los usuarios.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 diseno_endpoint">
+    <h2 id="_diseno_endpoint">4. Diseño de Endpoint Rest</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 definicion_endpoints">
+        <h3 id="_definicion_endpoints">4.1. Definición de Endpoints</h3>
+        <div class="paragraph">
+          <p>En este proyecto, se definen los siguientes endpoints para la API REST:</p>
+          <ul>
+            <li><code>GET /productos</code> - Obtiene una lista de todos los productos disponibles.</li>
+            <li><code>GET /productos/{id}</code> - Obtiene los detalles de un producto específico por su ID.</li>
+            <li><code>POST /pedidos</code> - Crea un nuevo pedido.</li>
+            <li><code>GET /pedidos/{id}</code> - Obtiene los detalles de un pedido por su ID.</li>
+            <li><code>POST /usuarios</code> - Registra un nuevo usuario.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sect2 ejemplos_peticiones">
+        <h3 id="_ejemplos_peticiones">4.2. Ejemplos de Peticiones y Respuestas</h3>
+        <div class="paragraph">
+          <p>A continuación, se presentan ejemplos de peticiones y respuestas típicas:</p>
+          <pre><code class="language-json">
+  // Ejemplo de petición GET /productos/1
+  {
+    "id": 1,
+    "nombre": "Naruto Vol. 1",
+    "descripcion": "Manga del primer volumen de Naruto",
+    "precio": 9900,
+    "stock": 20
+  }
+  
+  // Ejemplo de petición POST /pedidos
+  {
+    "usuario_id": 5,
+    "productos": [
+      { "id": 1, "cantidad": 2 },
+      { "id": 3, "cantidad": 1 }
+    ]
+  }
+  
+  // Respuesta POST /pedidos
+  {
+    "id": 101,
+    "usuario_id": 5,
+    "total": 19800,
+    "fecha": "2024-10-18"
+  }
+          </code></pre>
+        </div>
+      </div>
+
+      <div class="sect2 seguridad_endpoints">
+        <h3 id="_seguridad_endpoints">4.3. Seguridad en los Endpoints</h3>
+        <div class="paragraph">
+          <p>Para garantizar la seguridad en los endpoints, se aplicarán las siguientes medidas:</p>
+          <ul>
+            <li><strong>Autenticación y Autorización:</strong> Se utilizará OAuth2 para validar a los usuarios antes de permitirles acceder a recursos sensibles.</li>
+            <li><strong>Rate Limiting:</strong> Se limitará el número de peticiones por usuario para evitar abusos.</li>
+            <li><strong>Cifrado HTTPS:</strong> Todo el tráfico hacia y desde el servidor se cifrará usando HTTPS.</li>
+            <li><strong>Validación de Datos:</strong> Se validarán los datos de entrada para prevenir ataques de inyección.</li>
+            <li><strong>Manejo de Errores:</strong> Se devolverán respuestas claras y controladas para cada error posible.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+ 
+  <div class="sect1 tecnologia_backend">
+    <h2 id="_tecnologia_backend">5. Selección Tecnológica Backend</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 comparativa_cms_custom">
+        <h3 id="_comparativa_cms_custom">5.1. Comparativa entre CMS y Desarrollo Custom</h3>
+        <div class="paragraph">
+          <p>En el desarrollo de ecommerce, es fundamental elegir entre utilizar un CMS (Content Management System) o realizar un desarrollo custom. A continuación, se presenta una comparativa:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Características</th>
+                <th>CMS</th>
+                <th>Desarrollo Custom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Velocidad de Implementación</td>
+                <td>Alta</td>
+                <td>Baja</td>
+              </tr>
+              <tr>
+                <td>Costos Iniciales</td>
+                <td>Bajo a moderado</td>
+                <td>Alto</td>
+              </tr>
+              <tr>
+                <td>Flexibilidad</td>
+                <td>Limitada</td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Mantenimiento</td>
+                <td>Simplificado</td>
+                <td>Complicado</td>
+              </tr>
+              <tr>
+                <td>Escalabilidad</td>
+                <td>Moderada</td>
+                <td>Alta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <div class="sect2 shopify_cms">
+        <h3 id="_shopify_cms">5.2. Razones para Elegir Shopify como CMS</h3>
+        <div class="paragraph">
+          <p>Shopify es la opción elegida como CMS para este proyecto por las siguientes razones:</p>
+          <ul>
+            <li><strong>Facilidad de Uso:</strong> Su interfaz intuitiva permite gestionar productos y pedidos sin conocimientos técnicos avanzados.</li>
+            <li><strong>Bajo Costo Operacional:</strong> Planes asequibles que se ajustan al presupuesto de la tienda.</li>
+            <li><strong>Soporte Integrado:</strong> Shopify ofrece soporte técnico 24/7 y una comunidad activa de usuarios.</li>
+            <li><strong>Herramientas de Marketing:</strong> Incluye herramientas como SEO, análisis de datos y promociones.</li>
+            <li><strong>Hosting incluido:</strong> El sitio se aloja directamente en la plataforma de Shopify, ahorrando costos de servidor adicionales.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 integraciones_shopify">
+        <h3 id="_integraciones_shopify">5.3. Integraciones Adicionales con Shopify</h3>
+        <div class="paragraph">
+          <p>Para potenciar el ecommerce, se consideran las siguientes integraciones con Shopify:</p>
+          <ul>
+            <li><strong>Pasarelas de Pago:</strong> Integración con Webpay Plus para pagos en Chile.</li>
+            <li><strong>Envíos:</strong> Conexión con empresas de logística locales como Chilexpress y Starken.</li>
+            <li><strong>Automatización de Marketing:</strong> Uso de herramientas como Klaviyo para automatizar campañas de correo.</li>
+            <li><strong>Gestión de Redes Sociales:</strong> Sincronización de inventario con Facebook e Instagram Shops.</li>
+            <li><strong>Análisis y Reportes:</strong> Integración con Google Analytics para seguimiento de visitas y conversiones.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 tecnologia_frontend">
+    <h2 id="_tecnologia_frontend">6. Selección Tecnológica Frontend</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 personalizacion_visual">
+        <h3 id="_personalizacion_visual">6.1. Opciones para Personalización Visual</h3>
+        <div class="paragraph">
+          <p>La personalización visual es fundamental para diferenciar la tienda y transmitir su identidad de marca. Las opciones principales para personalización en Shopify incluyen:</p>
+          <ul>
+            <li><strong>Plantillas Predefinidas:</strong> Shopify ofrece una variedad de temas gratuitos y de pago que pueden ser adaptados a la estética deseada.</li>
+            <li><strong>Editor de Temas:</strong> Permite modificar colores, fuentes y disposición de elementos de forma intuitiva.</li>
+            <li><strong>HTML y CSS Personalizado:</strong> Para usuarios con conocimientos avanzados, es posible acceder al código y realizar ajustes específicos.</li>
+            <li><strong>Apps de Personalización:</strong> Existen aplicaciones en el marketplace de Shopify que añaden funcionalidades y opciones visuales adicionales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sect2 frameworks_librerias">
+        <h3 id="_frameworks_librerias">6.2. Frameworks y Librerías Compatibles</h3>
+        <div class="paragraph">
+          <p>Al seleccionar tecnologías frontend para personalización, es importante considerar la compatibilidad con Shopify. Las opciones recomendadas son:</p>
+          <ul>
+            <li><strong>Bootstrap:</strong> Facilita el diseño responsivo con una estructura predefinida de grids y componentes.</li>
+            <li><strong>Tailwind CSS:</strong> Una librería moderna y eficiente para estilos personalizados, ampliamente usada en proyectos ecommerce.</li>
+            <li><strong>Liquid:</strong> El motor de plantillas propio de Shopify para mostrar contenido dinámico en las páginas.</li>
+            <li><strong>jQuery:</strong> Compatibilidad para agregar interactividad básica sin la necesidad de frameworks más complejos.</li>
+            <li><strong>React (opcional):</strong> Aunque Shopify no lo requiere, algunas aplicaciones y personalizaciones avanzadas pueden beneficiarse del uso de React.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sect2 diseno_responsivo">
+        <h3 id="_diseno_responsivo">6.3. Diseño Responsivo y Experiencia de Usuario</h3>
+        <div class="paragraph">
+          <p>Un diseño responsivo asegura que la tienda funcione de manera óptima en dispositivos móviles, tabletas y computadores. Las consideraciones principales son:</p>
+          <ul>
+            <li><strong>Grilla Fluida:</strong> Utilizar frameworks como Bootstrap o Tailwind CSS para asegurar que los elementos se adapten al tamaño de la pantalla.</li>
+            <li><strong>Optimización de Imágenes:</strong> Asegurarse de que las imágenes sean ligeras y de alta calidad para evitar tiempos de carga largos.</li>
+            <li><strong>Navegación Intuitiva:</strong> Diseñar menús y elementos de navegación accesibles en dispositivos táctiles.</li>
+            <li><strong>Velocidad de Carga:</strong> Minimizar el uso de scripts y recursos externos para mejorar la experiencia del usuario.</li>
+            <li><strong>Accesibilidad:</strong> Implementar prácticas que faciliten la navegación a personas con discapacidades, como etiquetas ARIA y contraste adecuado.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 costos_servidor">
+    <h2 id="_costos_servidor">7. Estimación de Costos de Servidor y Operación</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 costos_modos">
+        <h3 id="_costos_modos">7.1. Costos en Modo Bajo, Normal y Crítico</h3>
+        <div class="paragraph">
+          <p>La siguiente estimación presenta los costos asociados al funcionamiento del ecommerce bajo diferentes escenarios:</p>
+          <ul>
+            <li><strong>Modo Bajo:</strong> Hosting básico de Shopify con funcionalidades mínimas. Costo aproximado: $29 USD/mes.</li>
+            <li><strong>Modo Normal:</strong> Plan estándar con acceso a analíticas y mejoras de rendimiento. Costo aproximado: $79 USD/mes.</li>
+            <li><strong>Modo Crítico:</strong> Plan avanzado con soporte 24/7 y funcionalidades avanzadas. Costo aproximado: $299 USD/mes.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 sostenibilidad_economica">
+        <h3 id="_sostenibilidad_economica">7.2. Análisis de Sostenibilidad Económica Mensual</h3>
+        <div class="paragraph">
+          <p>Para garantizar la viabilidad económica del proyecto, se realiza el siguiente análisis:</p>
+          <ul>
+            <li><strong>Ingreso Promedio:</strong> Se proyectan ventas diarias de 10 transacciones, con un ticket promedio de $20.000 CLP.</li>
+            <li><strong>Margen Bruto:</strong> Se estima un margen bruto del 30% sobre las ventas.</li>
+            <li><strong>Costos Operacionales:</strong> Incluyen el hosting de Shopify y servicios adicionales como dominio y correo corporativo.</li>
+            <li><strong>Punto de Equilibrio:</strong> El ecommerce alcanzará el equilibrio con al menos 15 ventas diarias en promedio.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 alternativas_ahorro">
+        <h3 id="_alternativas_ahorro">7.3. Alternativas de Ahorro</h3>
+        <div class="paragraph">
+          <p>Se presentan algunas estrategias para reducir los costos operativos:</p>
+          <ul>
+            <li><strong>Uso de Planes Básicos:</strong> Considerar comenzar con el plan básico de Shopify y escalar según el crecimiento.</li>
+            <li><strong>Aplicaciones Gratuitas:</strong> Utilizar apps gratuitas del marketplace para funcionalidades adicionales.</li>
+            <li><strong>Pago Anual:</strong> Optar por pagos anuales para obtener descuentos significativos.</li>
+            <li><strong>Optimización de Recursos:</strong> Minimizar costos con integración de herramientas de gestión gratuitas como Google Workspace.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 profesionales_necesarios">
+    <h2 id="_profesionales_necesarios">8. Selección de Profesionales Necesarios</h2>
+    <div class="sectionbody">
+  
+ 
+      <div class="sect2 roles_perfiles">
+        <h3 id="_roles_perfiles">8.1. Roles y Perfiles Necesarios</h3>
+        <div class="paragraph">
+          <p>Para la implementación y mantenimiento del ecommerce, se requieren los siguientes roles:</p>
+          <ul>
+            <li><strong>Desarrollador Backend:</strong> Encargado de la configuración y personalización del CMS (Shopify).</li>
+            <li><strong>Desarrollador Frontend:</strong> Responsable de la personalización visual y la experiencia de usuario.</li>
+            <li><strong>Administrador de Servidor:</strong> Gestiona el servidor y la infraestructura en la nube, en caso de ser necesario.</li>
+            <li><strong>Diseñador UX/UI:</strong> Mejora la experiencia del usuario mediante interfaces intuitivas y funcionales.</li>
+            <li><strong>Soporte Técnico:</strong> Provee asistencia en caso de problemas con el sistema o en la operación diaria.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sect2 estimacion_costos_trabajo">
+        <h3 id="_estimacion_costos_trabajo">8.2. Estimación de Horas y Costos de Trabajo</h3>
+        <div class="paragraph">
+          <p>A continuación, se detalla la estimación de horas de trabajo y costos para cada rol involucrado:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Rol</th>
+                <th>Horas Estimadas</th>
+                <th>Costo por Hora (CLP)</th>
+                <th>Costo Total (CLP)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Desarrollador Backend</td>
+                <td>40</td>
+                <td>20.000</td>
+                <td>800.000</td>
+              </tr>
+              <tr>
+                <td>Desarrollador Frontend</td>
+                <td>35</td>
+                <td>18.000</td>
+                <td>630.000</td>
+              </tr>
+              <tr>
+                <td>Administrador de Servidor</td>
+                <td>10</td>
+                <td>25.000</td>
+                <td>250.000</td>
+              </tr>
+              <tr>
+                <td>Diseñador UX/UI</td>
+                <td>20</td>
+                <td>22.000</td>
+                <td>440.000</td>
+              </tr>
+              <tr>
+                <td>Soporte Técnico</td>
+                <td>15</td>
+                <td>15.000</td>
+                <td>225.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>Total Estimado:</strong> 2.345.000 CLP</p>
+        </div>
+      </div>
+
+      <div class="sect2 planificacion_soporte">
+        <h3 id="_planificacion_soporte">8.3. Planificación de Colaboración y Soporte</h3>
+        <div class="paragraph">
+          <p>La planificación del trabajo en equipo y el soporte técnico incluye las siguientes actividades:</p>
+          <ul>
+            <li><strong>Reuniones Semanales:</strong> Seguimiento de progreso y coordinación entre desarrolladores y diseñadores.</li>
+            <li><strong>Soporte Técnico Continuo:</strong> Disponibilidad de asistencia remota para resolver problemas rápidamente.</li>
+            <li><strong>Uso de Herramientas de Gestión:</strong> Plataformas como Trello o Jira para la gestión de tareas y plazos.</li>
+            <li><strong>Entrega Iterativa:</strong> El proyecto se entregará en fases para validar cada componente antes del lanzamiento.</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 estimacion_plazos">
+    <h2 id="_estimacion_plazos">9. Estimación de Plazos para Implementar</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 cronograma_proyecto">
+        <h3 id="_cronograma_proyecto">9.1. Cronograma del Proyecto</h3>
+        <div class="paragraph">
+          <p>El cronograma del proyecto establece las fechas y etapas clave necesarias para completar el ecommerce de forma eficiente.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Fase</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Término</th>
+                <th>Duración</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Planificación</td>
+                <td>01/11/2024</td>
+                <td>05/11/2024</td>
+                <td>5 días</td>
+              </tr>
+              <tr>
+                <td>2. Desarrollo Backend</td>
+                <td>06/11/2024</td>
+                <td>20/11/2024</td>
+                <td>15 días</td>
+              </tr>
+              <tr>
+                <td>3. Desarrollo Frontend</td>
+                <td>21/11/2024</td>
+                <td>05/12/2024</td>
+                <td>15 días</td>
+              </tr>
+              <tr>
+                <td>4. Pruebas e Integración</td>
+                <td>06/12/2024</td>
+                <td>15/12/2024</td>
+                <td>10 días</td>
+              </tr>
+              <tr>
+                <td>5. Lanzamiento y Monitoreo Inicial</td>
+                <td>16/12/2024</td>
+                <td>20/12/2024</td>
+                <td>5 días</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sect2 tiempos_fases">
+        <h3 id="_tiempos_fases">9.2. Tiempos Estimados para Cada Fase</h3>
+        <div class="paragraph">
+          <p>La siguiente es una estimación detallada de los tiempos necesarios para cada fase del proyecto:</p>
+          <ul>
+            <li><strong>Planificación:</strong> 5 días</li>
+            <li><strong>Desarrollo Backend:</strong> 15 días</li>
+            <li><strong>Desarrollo Frontend:</strong> 15 días</li>
+            <li><strong>Pruebas e Integración:</strong> 10 días</li>
+            <li><strong>Lanzamiento y Monitoreo Inicial:</strong> 5 días</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="sect2 plan_contingencia">
+        <h3 id="_plan_contingencia">9.3. Mitigación de Riesgos y Plan de Contingencia</h3>
+        <div class="paragraph">
+          <p>Se identifican los posibles riesgos en cada fase y las medidas de mitigación propuestas:</p>
+          <ul>
+            <li><strong>Retrasos en el desarrollo:</strong> Uso de metodologías ágiles para ajustarse rápidamente a los cambios.</li>
+            <li><strong>Fallas técnicas durante el lanzamiento:</strong> Realizar pruebas exhaustivas antes del lanzamiento oficial.</li>
+            <li><strong>Problemas de integración:</strong> Incluir un periodo adicional para corregir errores imprevistos.</li>
+            <li><strong>Riesgo financiero:</strong> Planificar costos con márgenes para evitar sobrecarga presupuestaria.</li>
+          </ul>
+          <p>Además, se propone un plan de contingencia para gestionar cualquier inconveniente que pudiera surgir durante la implementación del proyecto.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 adr">
+    <h2 id="_adr">10. ADR (Architectural Decision Records)</h2>
+    <div class="sectionbody">
+
+      <div class="sect2 adr_cms">
+        <h3 id="_adr_cms">10.1. Selección de CMS</h3>
+        <div class="paragraph">
+          <p>Se decidió utilizar Shopify como CMS para el ecommerce por las siguientes razones:</p>
+          <ul>
+            <li><strong>Facilidad de uso:</strong> Plataforma intuitiva que no requiere conocimientos técnicos avanzados.</li>
+            <li><strong>Escalabilidad:</strong> Puede manejar el crecimiento gradual del negocio.</li>
+            <li><strong>Integraciones:</strong> Ofrece múltiples opciones de integración con herramientas de marketing y pago.</li>
+          </ul>
+          <p>Esta decisión reduce los tiempos de desarrollo y los costos asociados, permitiendo centrarse en la gestión del negocio.</p>
+        </div>
+      </div>
+
+      <div class="sect2 adr_servidor">
+        <h3 id="_adr_servidor">10.2. Selección del Servidor</h3>
+        <div class="paragraph">
+          <p>La selección del servidor se basó en los siguientes criterios:</p>
+          <ul>
+            <li><strong>Presupuesto:</strong> Se seleccionó un servidor que se ajusta a las restricciones económicas del proyecto.</li>
+            <li><strong>Capacidad:</strong> Manejo eficiente de hasta 100 transacciones diarias en picos de demanda.</li>
+            <li><strong>Compatibilidad:</strong> Asegura compatibilidad total con Shopify.</li>
+          </ul>
+          <p>Se optó por un servidor compartido, lo que permite un equilibrio entre costo y rendimiento.</p>
+        </div>
+      </div>
+
+      <div class="sect2 adr_integracion_shopify">
+        <h3 id="_adr_integracion_shopify">10.3. Integración con Shopify</h3>
+        <div class="paragraph">
+          <p>La integración con Shopify se ha seleccionado considerando:</p>
+          <ul>
+            <li><strong>Facilidad de implementación:</strong> Shopify ofrece API robustas para personalización rápida.</li>
+            <li><strong>Gestión de inventario:</strong> Sincronización automática del inventario entre la tienda física y online.</li>
+            <li><strong>Métodos de pago:</strong> Aceptación de múltiples métodos de pago, garantizando flexibilidad al cliente.</li>
+          </ul>
+          <p>Esta integración permite optimizar la gestión del ecommerce, ahorrando tiempo y costos operativos.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="sect1 c4_diagrama">
+    <h2 id="_c4_diagrama">11. Diagrama de Arquitectura C4 (PlantUML)</h2>
+    <div class="sectionbody">
+  
+      
+      <div class="sect2 contexto_sistema">
+        <h3 id="_contexto_sistema">11.1. Contexto del Sistema</h3>
+        <div class="paragraph">
+          <p>El contexto del sistema describe cómo el ecommerce de <strong>Chile Mangas</strong> se conecta con usuarios, sistemas externos, y servicios. A continuación, se presenta un diagrama de contexto en PlantUML:</p>
+          <pre>
+  @startuml
+  actor Cliente
+  package "Chile Mangas Ecommerce" {
+    [Frontend]
+    [Backend]
+  }
+  Cliente --> [Frontend] : Interacción Web
+  [Frontend] --> [Backend] : Petición API
+  [Backend] --> [Shopify] : Gestión de Productos e Inventario
+  @enduml
+          </pre>
+          <p>Este diagrama refleja cómo los usuarios interactúan con la plataforma, destacando la conexión con Shopify como CMS.</p>
+        </div>
+      </div>
+  
+      
+      <div class="sect2 componentes_contenedores">
+        <h3 id="_componentes_contenedores">11.2. Contenedores y Componentes</h3>
+        <div class="paragraph">
+          <p>El siguiente diagrama describe los contenedores principales del sistema y sus componentes internos:</p>
+          <pre>
+  @startuml
+  package "Frontend" {
+    [Página Principal]
+    [Carrito de Compras]
+    [Formulario de Pago]
+  }
+  package "Backend" {
+    [API de Shopify]
+    [Base de Datos]
+  }
+  [Página Principal] --> [Carrito de Compras] : Navegación
+  [Carrito de Compras] --> [Formulario de Pago] : Checkout
+  [Formulario de Pago] --> [API de Shopify] : Validación y Pago
+  @enduml
+          </pre>
+          <p>Este diagrama muestra los módulos clave del frontend y backend, así como su interacción para completar una compra.</p>
+        </div>
+      </div>
+  
+     
+      <div class="sect2 despliegue_infraestructura">
+        <h3 id="_despliegue_infraestructura">11.3. Despliegue de Infraestructura</h3>
+        <div class="paragraph">
+          <p>El diagrama de despliegue refleja la infraestructura necesaria para el funcionamiento del ecommerce:</p>
+          <pre>
+  @startuml
+  node "Servidor Web" {
+    [Frontend]
+  }
+  node "Servidor Backend" {
+    [Backend]
+  }
+  cloud "Shopify" {
+    [API de Shopify]
+  }
+  [Frontend] --> [Backend] : Llamada API
+  [Backend] --> [API de Shopify] : Sincronización
+  @enduml
+          </pre>
+          <p>Este esquema detalla los servidores necesarios y la conexión con Shopify para la gestión del ecommerce.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+<div class="sect1 personas">
+  <h2 id="_personas">12. Persona Positiva y Persona Negativa</h2>
+  <div class="paragraph">
+    <p>Descripción detallada de los perfiles de usuario que interactuarán con el sistema:</p>
+    <ul>
+      <li><strong>Persona Positiva:</strong> Un cliente recurrente que valora la experiencia fluida de compra y promociones exclusivas.</li>
+      <li><strong>Persona Negativa:</strong> Usuario que busca productos sin intención real de compra y genera carritos abandonados.</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="sect1 user_journey">
+  <h2 id="_user_journey">13. User Journey / Storyboard</h2>
+  <div class="paragraph">
+    <p>Visualización del recorrido del usuario durante una compra exitosa en el ecommerce:</p>
+    <ol>
+      <li>El cliente visita la página principal.</li>
+      <li>Navega por las categorías de productos y selecciona mangas específicos.</li>
+      <li>Añade los productos al carrito y procede al pago.</li>
+      <li>Completa la compra y recibe confirmación por correo.</li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="sect1 analisis_sistema">
+  <h2 id="_analisis_sistema">14. Análisis de Qué es y Qué no es el Sistema</h2>
+  <div class="paragraph">
+    <ul>
+      <li><strong>Qué es el sistema:</strong> Una plataforma online para la venta de productos de anime y videojuegos.</li>
+      <li><strong>Qué no es el sistema:</strong> No es una red social ni una plataforma de suscripción de contenido.</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="sect1 estimacion_costos">
+  <h2 id="_estimacion_costos">15. Estimación Aproximada de Costos</h2>
+  <div class="paragraph">
+    <p>Desglose de costos estimados para los modos de operación:</p>
+    <ul>
+      <li><strong>Modo Bajo:</strong> $50 USD/mes</li>
+      <li><strong>Modo Normal:</strong> $100 USD/mes</li>
+      <li><strong>Modo Crítico:</strong> $200 USD/mes</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="sect1 github_pages">
+  <h2 id="_github_pages">16. Publicación del Proyecto en Github Pages</h2>
+  <div class="paragraph">
+    <p>El proyecto estará disponible públicamente en <a href="https://pages.github.com/">Github Pages</a> para su consulta. Se utilizará un repositorio que contenga el código fuente y el HTML generado.</p>
+  </div>
+</div>
+
+
+<div class="sect1 conclusion">
+  <h2 id="_conclusion">17. Conclusión</h2>
+  <div class="paragraph">
+    <p>Se concluye que el ecommerce de Chile Mangas permitirá expandir el negocio a nivel nacional, manteniendo los costos operacionales bajos gracias a la integración con Shopify y la infraestructura seleccionada. El proyecto ofrece una experiencia de usuario sencilla y eficiente, adecuada para los dueños de la tienda y los clientes finales.</p>
+  </div>
+</div>
+
+
+</div>
+
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Footnote
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2024-10-18 13:55:55 UTC
+</div>
+</div>
+<script src="highlight/highlight.min.js"></script>
+<script src="highlight/languages/css.min.js"></script>
+<script src="highlight/languages/javascript.min.js"></script>
+<script src="highlight/languages/markdown.min.js"></script>
+<script src="highlight/languages/ruby.min.js"></script>
+<script src="highlight/languages/wren.min.js"></script>
+<script src="highlight/languages/elixir.min.js"></script>
+<script src="highlight/languages/erlang.min.js"></script>
+<script src="highlight/languages/swift.min.js"></script>
+<script src="highlight/languages/rust.min.js"></script>
+<script src="highlight/languages/python.min.js"></script>
+<script src="highlight/languages/yaml.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
